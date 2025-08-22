@@ -7,7 +7,7 @@ import changeTheme from "../../utils/changeTheme";
 
 const NavbarDt = () => {
   return (
-    <div className="hidden md:flex gap-6 items-center text-sm md:text-base">
+    <div className="hidden lg:flex gap-6 items-center text-sm md:text-base">
       {navData.navLinks.map((sec) => (
         <Link
           key={sec}

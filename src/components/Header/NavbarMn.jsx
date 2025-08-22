@@ -12,13 +12,13 @@ const NavbarMn = () => {
     <>
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="md:hidden text-2xl"
+        className="lg:hidden text-2xl"
       >
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
       {menuOpen && (
-        <div className="md:hidden fixed top-16 left-0 w-full bg-white/90 dark:bg-slate-800/90 blakdrop-blur-lg p-6 flex flex-col items-center gap-4 text-lg z-40">
+        <div className="lg:hidden fixed top-16 left-0 w-full bg-white/90 dark:bg-slate-800/90 blakdrop-blur-lg p-6 flex flex-col items-center gap-4 text-lg z-40">
           {navData.navLinks.map((sec) => (
             <Link
               key={sec}

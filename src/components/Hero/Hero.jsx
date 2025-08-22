@@ -13,7 +13,7 @@ const Hero = () => {
         transition={{ duration: 1 }}
         className="flex-1 flex justify-center"
       >
-        <div className="w-48 h-48 md:w-64 md:h-64 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
+        <div className="w-48 h-48 mt-20 md:mt-0 md:w-64 md:h-64 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
       </motion.div>
       <motion.div
         initial={{ x: 100, opacity: 0 }}
