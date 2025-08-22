@@ -1,11 +1,26 @@
 import React from "react";
 import { Link } from "react-scroll";
-import { FaPalette, FaSun } from "react-icons/fa";
+import { FaMoon, FaPalette, FaSun } from "react-icons/fa";
 import navData from "../../dataJsons/navLinks.json";
-import toggleDarkMode from "../../utils/toggleDarkMode";
-import changeTheme from "../../utils/changeTheme";
+import { useTheme } from "../../context/ThemeContext";
 
 const NavbarDt = () => {
+  const { themes, changeLightDarkTheme, changePaletteTheme } = useTheme();
+
+  const toggleDarkMode = () => {
+    changeLightDarkTheme(!themes.lightDarkTheme);
+  };
+  const togglePaletteTheme = () => {
+    if (themes.lightDarkTheme) return;
+    const tempThemes = ["modern", "neon", "aesthetic"];
+    const next =
+      tempThemes[
+        (tempThemes.indexOf(themes.paletteTheme) + 1) % tempThemes.length
+      ];
+    console.log(next);
+    changePaletteTheme(next);
+  };
+
   return (
     <div className="hidden lg:flex gap-6 items-center text-sm md:text-base">
       {navData.navLinks.map((sec) => (
@@ -20,9 +35,9 @@ const NavbarDt = () => {
         </Link>
       ))}
       <button onClick={toggleDarkMode}>
-        <FaSun />
+        {themes.lightDarkTheme ? <FaMoon /> : <FaSun />}
       </button>
-      <button onClick={changeTheme}>
+      <button onClick={togglePaletteTheme}>
         <FaPalette />
       </button>
     </div>

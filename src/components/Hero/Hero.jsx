@@ -2,6 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -28,10 +35,18 @@ const Hero = () => {
           Building immersive, modern web experiences with clean UI + animations.
         </p>
         <div className="mt-6 flex gap-4 justify-center md:justify-start">
-          <button className="px-4 py-2 bg-purple-600 text-white rounded-xl">
+          <button
+            className="px-4 py-2 bg-purple-600 text-white rounded-xl"
+            onClick={() =>
+              window.open(`${import.meta.env.BASE_URL}resume.pdf`, "_blank")
+            }
+          >
             Download Resume
           </button>
-          <button className="px-4 py-2 bg-pink-500 text-white rounded-xl">
+          <button
+            className="px-4 py-2 bg-pink-500 text-white rounded-xl"
+            onClick={handleScrollToContact}
+          >
             Let’s Connect
           </button>
         </div>

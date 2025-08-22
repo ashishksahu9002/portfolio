@@ -1,0 +1,7 @@
+{
+  "themeClasses": {
+    "modern": "bg-gradient-to-br from-slate-100 to-slate-300 text-slate-800",
+    "neon": "bg-slate-900 text-green-400",
+    "aesthetic": "bg-gradient-to-br from-pink-100 to-purple-200 text-purple-900"
+  }
+}
