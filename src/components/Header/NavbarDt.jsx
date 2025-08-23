@@ -6,12 +6,14 @@ import { useTheme } from "../../context/ThemeContext";
 
 const NavbarDt = () => {
   const { themes, changeLightDarkTheme, changePaletteTheme } = useTheme();
+  const { lightDarkTheme, paletteTheme } = themes;
+  console.log("themes.lightDarkTheme : ", lightDarkTheme);
 
   const toggleDarkMode = () => {
-    changeLightDarkTheme(!themes.lightDarkTheme);
+    changeLightDarkTheme(!lightDarkTheme);
   };
   const togglePaletteTheme = () => {
-    if (themes.lightDarkTheme) return;
+    if (lightDarkTheme) return;
     const tempThemes = ["modern", "neon", "aesthetic"];
     const next =
       tempThemes[
@@ -35,9 +37,13 @@ const NavbarDt = () => {
         </Link>
       ))}
       <button onClick={toggleDarkMode}>
-        {themes.lightDarkTheme ? <FaMoon /> : <FaSun />}
+        {lightDarkTheme ? <FaMoon /> : <FaSun />}
       </button>
-      <button onClick={togglePaletteTheme}>
+      <button
+        onClick={togglePaletteTheme}
+        disabled={lightDarkTheme}
+        className={lightDarkTheme ? "cursor-not-allowed" : "cursor-pointer"}
+      >
         <FaPalette />
       </button>
     </div>
